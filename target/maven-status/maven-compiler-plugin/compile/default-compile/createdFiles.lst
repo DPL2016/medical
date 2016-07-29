@@ -1,4 +1,12 @@
+com\kaishengit\pojo\Role.class
 com\kaishengit\util\ServletUtil.class
-com\kaishengit\controller\HomeController.class
 com\kaishengit\util\Page.class
+com\kaishengit\service\UserService.class
+com\kaishengit\dto\FlashMessage.class
+com\kaishengit\service\ShiroRealm.class
+com\kaishengit\controller\HomeController.class
+com\kaishengit\dao\BaseDao.class
+com\kaishengit\dao\UserDao.class
+com\kaishengit\dao\RoleDao.class
+com\kaishengit\pojo\User.class
 com\kaishengit\util\Strings.class
