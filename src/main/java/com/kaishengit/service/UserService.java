@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 
 @Named
 @Transactional
@@ -41,5 +42,13 @@ public class UserService {
 
     public User findByUserName(String username) {
         return userDao.findByUserName(username);
+    }
+
+    public List<User> findAll() {
+        return userDao.findAll();
+    }
+
+    public void deleteUser(Integer id) {
+        userDao.delete(id);
     }
 }

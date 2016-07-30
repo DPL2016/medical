@@ -1,6 +1,7 @@
 package com.kaishengit.dao;
 
 import com.kaishengit.pojo.User;
+import com.kaishengit.pojo.UserLog;
 import org.hibernate.Criteria;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -11,6 +12,7 @@ import org.hibernate.criterion.Restrictions;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 
 @Named
 public class UserDao{
@@ -25,5 +27,20 @@ public class UserDao{
         criteria.add(Restrictions.eq("username",username));
 
         return (User) criteria.uniqueResult();
+    }
+
+    public List<User> findAll() {
+        Criteria criteria = getSession().createCriteria(User.class);
+        return criteria.list();
+    }
+
+    public User findById(Integer id){
+        Criteria criteria = getSession().createCriteria(User.class);
+        criteria.add(Restrictions.eq("id",id));
+        return (User) criteria.uniqueResult();
+    }
+
+    public void delete(Integer id) {
+        getSession().delete(findById(id));
     }
 }

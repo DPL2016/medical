@@ -28,6 +28,13 @@ public class User implements Serializable{
     @OneToMany(mappedBy = "user")
     private Set<UserLog> userLogSet;
 
+    public Set<UserLog> getUserLogSet() {
+        return userLogSet;
+    }
+
+    public void setUserLogSet(Set<UserLog> userLogSet) {
+        this.userLogSet = userLogSet;
+    }
     public Role getRole() {
         return role;
     }
