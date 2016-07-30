@@ -6,7 +6,7 @@
     <title></title>
     <link rel="stylesheet" href="http://cdn.staticfile.org/twitter-bootstrap/2.3.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="http://cdn.staticfile.org/font-awesome/4.1.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="/static/medical/css/style.css">
 </head>
 <body>
 <jsp:include page="include/nav.jsp">
