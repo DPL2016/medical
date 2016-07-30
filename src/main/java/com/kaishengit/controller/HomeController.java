@@ -26,9 +26,9 @@ public class HomeController {
     public String login(){
         return "login";
     }
+
     @RequestMapping(value = "/",method = RequestMethod.POST)
-    public String login(String username, String password,
-                        RedirectAttributes redirectAttributes, HttpServletRequest request){
+    public String login(String username, String password, RedirectAttributes redirectAttributes, HttpServletRequest request){
         Subject subject = SecurityUtils.getSubject();
         if (subject.isAuthenticated()){
             subject.logout();

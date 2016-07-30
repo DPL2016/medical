@@ -1,6 +1,7 @@
 package com.kaishengit.dao;
 
 
+import com.kaishengit.pojo.Role;
 import com.kaishengit.pojo.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -20,11 +21,18 @@ public class UserDaoTestCase {
     private UserDao userDao;
     @Autowired
     private SessionFactory sessionFactory;
+    @Autowired
+    private RoleDao roleDao;
     @Test
     public void testFindByUsername(){
        User user = userDao.findByUserName("tom");
         System.out.println(user);
     }
 
+    @Test
+    public void testFindByRoleid(){
+        Role role = roleDao.findById(1);
+        System.out.println(role);
+    }
 
 }

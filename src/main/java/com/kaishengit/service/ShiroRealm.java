@@ -56,6 +56,7 @@ public class ShiroRealm extends AuthorizingRealm {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         String username = token.getUsername();
         User user = userDao.findByUserName(username);
+        System.out.println(user);
         if (user != null) {
             if (!user.getEnable()) {
                 throw new LockedAccountException("账号已被禁用");
