@@ -21,16 +21,10 @@ public class UserDao{
         return sessionFactory.getCurrentSession();
     }
     public User findByUserName(String username) {
-        /*Criteria criteria = getSession().createCriteria(User.class);
+      Criteria criteria = getSession().createCriteria(User.class);
         criteria.add(Restrictions.eq("username",username));
         User user = (User) criteria.uniqueResult();
         System.out.println(user.getUsername());
-        return user;*/
-        String hql = "from User where username = :username";
-        Query query = getSession().createSQLQuery(hql);
-        query.setParameter("username",username);
-        User user = (User) query.uniqueResult();
-        System.out.println(user);
         return user;
     }
 }
