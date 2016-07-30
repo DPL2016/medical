@@ -21,9 +21,7 @@ import javax.inject.Named;
 public class ShiroRealm extends AuthorizingRealm {
     private Logger logger = LoggerFactory.getLogger(ShiroRealm.class);
     @Inject
-    private UserDao userDao;
-    @Inject
-    private RoleDao roleDao;
+    private UserService userService;
 
     /**
      * 验证用户是否具有权限
@@ -36,7 +34,7 @@ public class ShiroRealm extends AuthorizingRealm {
         User user = (User) principalCollection.getPrimaryPrincipal();
         if (user!=null){
             Integer roleId = user.getRole().getId();
-            Role role = roleDao.findById(roleId);
+            Role role = userService.findUserById(roleId);
             SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
             info.addRole(role.getRolename());
             return info;
@@ -55,7 +53,7 @@ public class ShiroRealm extends AuthorizingRealm {
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
         String username = token.getUsername();
-        User user = userDao.findByUserName(username);
+        User user = userService.findByUserName(username);
         System.out.println(user);
         if (user != null) {
             if (!user.getEnable()) {

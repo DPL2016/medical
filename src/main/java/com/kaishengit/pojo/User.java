@@ -4,6 +4,8 @@ package com.kaishengit.pojo;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.sql.Timestamp;
+import java.util.Set;
+
 @Entity
 @Table(name = "t_user")
 public class User implements Serializable{
@@ -22,6 +24,9 @@ public class User implements Serializable{
     @ManyToOne
     @JoinColumn(name = "roleid")
     private Role role;
+
+    @OneToMany(mappedBy = "user")
+    private Set<UserLog> userLogSet;
 
     public Role getRole() {
         return role;
