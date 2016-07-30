@@ -2,6 +2,7 @@ package com.kaishengit.controller;
 
 import com.kaishengit.dto.FlashMessage;
 import com.kaishengit.service.UserService;
+import com.kaishengit.util.ServletUtil;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -36,10 +37,13 @@ public class HomeController {
         try {
             UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, DigestUtils.md5Hex(password));
             subject.login(usernamePasswordToken);
+            userService.saveUserLogin(ServletUtil.getRemoteIp(request));
             return "redirect:/home";
         }catch (LockedAccountException ex){
+            ex.printStackTrace();
             redirectAttributes.addFlashAttribute("message",new FlashMessage(FlashMessage.STATE_ERROR,"账号已被禁用"));
         } catch (AuthenticationException e){
+            e.printStackTrace();
             redirectAttributes.addFlashAttribute("message",new FlashMessage(FlashMessage.STATE_ERROR,"账号或密码错误"));
         }
         return "redirect:/";
