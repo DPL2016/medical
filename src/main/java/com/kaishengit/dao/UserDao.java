@@ -8,11 +8,13 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.annotations.Source;
 import org.hibernate.criterion.Criterion;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
+import java.util.Map;
 
 @Named
 public class UserDao{
@@ -42,5 +44,16 @@ public class UserDao{
 
     public void delete(Integer id) {
         getSession().delete(findById(id));
+    }
+
+    public void save(User user) {
+        getSession().save(user);
+    }
+
+
+    public Long count() {
+        Criteria criteria = getSession().createCriteria(User.class);
+        criteria.setProjection(Projections.rowCount());
+        return (Long) criteria.uniqueResult();
     }
 }

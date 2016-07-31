@@ -7,12 +7,14 @@ import com.kaishengit.pojo.Role;
 import com.kaishengit.pojo.User;
 import com.kaishengit.pojo.UserLog;
 import com.kaishengit.util.ShiroUtil;
+import com.kaishengit.util.Strings;
 import org.joda.time.DateTime;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
+import java.util.Map;
 
 @Named
 @Transactional
@@ -50,5 +52,19 @@ public class UserService {
 
     public void deleteUser(Integer id) {
         userDao.delete(id);
+    }
+
+    public void saveUser(User user) {
+        user.setEnable(true);
+        user.setPinyin(Strings.toPinyin(user.getRealname()));
+        userDao.save(user);
+    }
+
+    public List<Role> findAllRole() {
+        return roleDao.findAll();
+    }
+
+    public Long countUser() {
+        return userDao.count();
     }
 }

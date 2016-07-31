@@ -1,7 +1,7 @@
 com\kaishengit\controller\AccountController.class
 com\kaishengit\dto\JSONResult.class
-com\kaishengit\service\UserService.class
 com\kaishengit\util\Page.class
+com\kaishengit\service\UserService.class
 com\kaishengit\dto\FlashMessage.class
 com\kaishengit\dao\RoleDao.class
 com\kaishengit\dao\UserLogDao.class
@@ -12,6 +12,7 @@ com\kaishengit\serivce\MedicalTypeService.class
 com\kaishengit\pojo\Role.class
 com\kaishengit\util\ServletUtil.class
 com\kaishengit\util\ShiroUtil.class
+com\kaishengit\dto\DataTablesResult.class
 com\kaishengit\pojo\UserLog.class
 com\kaishengit\dao\MedicalTypeDao.class
 com\kaishengit\service\ShiroRealm.class

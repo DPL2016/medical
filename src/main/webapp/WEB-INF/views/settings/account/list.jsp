@@ -50,7 +50,7 @@
                                 <td>
                                     <a href="">修改</a>
                                     <a href="">禁用</a>
-                                    <a href="/account/${user.id}/del" rel="">删除</a>
+                                    <a href="/account/${user.id}/del">删除</a>
                                 </td>
                             </tr>
                         </c:forEach>
