@@ -48,8 +48,8 @@
                                 <td>**</td>
                                 <td>**</td>
                                 <td>
-                                    <a href="">修改</a>
-                                    <a href="">禁用</a>
+                                    <a href="/account/${user.id}/edit">修改</a>
+                                    <a href="javascript:;" id="enable" rel="${user.id}">禁用</a>
                                     <a href="/account/${user.id}/del">删除</a>
                                 </td>
                             </tr>
@@ -70,6 +70,21 @@
 
 <script src="http://cdn.staticfile.org/jquery/1.11.1/jquery.min.js"></script>
 <script src="http://cdn.staticfile.org/twitter-bootstrap/3.0.0/js/bootstrap.min.js"></script>
-
+<script>
+    $(function(){
+        $("#enable").click(function(){
+            var id = $(this).attr("rel");
+            if (confirm("确认禁用此账号？")) {
+                $.post("/account/"+id+"/disable", {"id": id}).done(function (data) {
+                    if (data == 'success') {
+                        alert("密码重置成功");
+                    }
+                }).fail(function () {
+                    alert("服务器异常")
+                });
+            }
+        });
+    });
+</script>
 </body>
 </html>

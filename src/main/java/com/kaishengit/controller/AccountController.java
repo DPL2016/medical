@@ -62,5 +62,28 @@ public class AccountController {
         return "redirect:/account";
     }
 
+    /**
+     * 修改
+     */
+    @RequestMapping(value = "/{id:\\d+}/edit",method = RequestMethod.GET)
+    public String edit(@PathVariable Integer id, Model model){
+        User user  = userService.finById(id);
+        List<Role> roleList = userService.findAllRole();
+        model.addAttribute("user",user);
+        model.addAttribute("roleList",roleList);
+        return "settings/account/edit";
+    }
 
+    @RequestMapping(value = "/edit",method = RequestMethod.POST)
+    public String edit(User user){
+        userService.saveUser(user);
+        return "redirect:/account";
+    }
+
+    @RequestMapping(value = "/{id:\\d+}/disable",method = RequestMethod.POST)
+    @ResponseBody
+    public String disable(@PathVariable Integer id){
+        userService.updateUserDisable(id);
+        return "success";
+    }
 }

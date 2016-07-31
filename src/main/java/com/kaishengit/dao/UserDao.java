@@ -47,7 +47,7 @@ public class UserDao{
     }
 
     public void save(User user) {
-        getSession().save(user);
+        getSession().saveOrUpdate(user);
     }
 
 
@@ -55,5 +55,12 @@ public class UserDao{
         Criteria criteria = getSession().createCriteria(User.class);
         criteria.setProjection(Projections.rowCount());
         return (Long) criteria.uniqueResult();
+    }
+
+    public void update(Integer id) {
+        Criteria criteria = getSession().createCriteria(User.class);
+        criteria.add(Restrictions.eq("id",id));
+        User user =  (User) criteria.uniqueResult();
+        getSession().update(user);
     }
 }
