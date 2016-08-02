@@ -32,7 +32,7 @@ public class ShiroRealm extends AuthorizingRealm {
         User user = (User) principalCollection.getPrimaryPrincipal();
         if (user!=null){
             Integer roleId = user.getRole().getId();
-            Role role = userService.findUserById(roleId);
+            Role role = userService.findUserByRoleId(roleId);
             SimpleAuthorizationInfo info = new SimpleAuthorizationInfo();
             info.addRole(role.getRolename());
             return info;

@@ -1,5 +1,6 @@
 package com.kaishengit.dto;
 
+
 import java.util.List;
 
 public class DataTablesResult<T> {
@@ -15,7 +16,6 @@ public class DataTablesResult<T> {
         this.recordsTotal = recordsTotal;
         this.recordsFiltered = recordsFiltered;
     }
-
     public String getDraw() {
         return draw;
     }

@@ -9,6 +9,7 @@ import org.hibernate.criterion.Restrictions;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.List;
 
 @Named
 public class RoleDao{
@@ -24,5 +25,10 @@ public class RoleDao{
         Role role = (Role) criteria.uniqueResult();
         System.out.println(role);
         return role;
+    }
+
+    public List<Role> findAll() {
+        Criteria criteria = getSession().createCriteria(Role.class);
+        return criteria.list();
     }
 }
