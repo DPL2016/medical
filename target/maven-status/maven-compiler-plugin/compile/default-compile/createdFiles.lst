@@ -3,9 +3,11 @@ com\kaishengit\dto\JSONResult.class
 com\kaishengit\util\Page.class
 com\kaishengit\service\UserService.class
 com\kaishengit\service\MedicalTypeService.class
+com\kaishengit\pojo\Announcement.class
 com\kaishengit\dto\FlashMessage.class
 com\kaishengit\exception\NotFoundException.class
 com\kaishengit\dao\RoleDao.class
+com\kaishengit\pojo\AnnouncementContext.class
 com\kaishengit\dao\UserLogDao.class
 com\kaishengit\pojo\User.class
 com\kaishengit\pojo\MedicalType.class

@@ -62,9 +62,10 @@ public class HomeController {
         return "redirect:/";
     }
 
-
     @RequestMapping("/home")
     public String home(){
         return "home";
     }
+
+
 }

@@ -1,7 +1,7 @@
 
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div class="navbar navbar-static-top">
-    <div class="navbar-inner">
+    <div class="navbar-inner" style="margin-bottom: 50px">
         <a class="brand" href="#">凯盛医疗</a>
         <ul class="nav">
             <li class="${param.menu =='home'?'active':''}"><a href="/home"><i class="fa fa-home"></i> 首页</a></li>
