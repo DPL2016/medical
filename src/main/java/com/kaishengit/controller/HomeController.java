@@ -37,6 +37,7 @@ public class HomeController {
         try {
             UsernamePasswordToken usernamePasswordToken = new UsernamePasswordToken(username, DigestUtils.md5Hex(password));
             subject.login(usernamePasswordToken);
+            //获取登录的IP地址，并保存用户登录的日志
             userService.saveUserLogin(ServletUtil.getRemoteIp(request));
             return "redirect:/home";
         }catch (LockedAccountException ex){
@@ -48,6 +49,19 @@ public class HomeController {
         }
         return "redirect:/";
     }
+
+
+    /**
+     * 安全退出
+     * @return
+     */
+    @RequestMapping(value = "/logout",method = RequestMethod.GET)
+    public String logout(RedirectAttributes redirectAttributes) {
+        SecurityUtils.getSubject().logout();
+        redirectAttributes.addFlashAttribute("message",new FlashMessage("你已安全退出"));
+        return "redirect:/";
+    }
+
 
     @RequestMapping("/home")
     public String home(){

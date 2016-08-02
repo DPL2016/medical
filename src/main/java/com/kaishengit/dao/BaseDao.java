@@ -4,15 +4,13 @@ import com.kaishengit.pojo.Patient;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.criterion.Projections;
 
 import javax.inject.Inject;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
 import java.util.List;
 
-/**
- * Created by Administrator on 2016/7/29.
- */
 public class BaseDao<T,PK> {
 
     @Inject
@@ -37,4 +35,9 @@ public class BaseDao<T,PK> {
     public void saveOrUpdate(Patient patient) {
         getSession().saveOrUpdate(patient);
     }
+
+
+
+
+
 }

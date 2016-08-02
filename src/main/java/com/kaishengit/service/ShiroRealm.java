@@ -1,7 +1,5 @@
 package com.kaishengit.service;
 
-import com.kaishengit.dao.RoleDao;
-import com.kaishengit.dao.UserDao;
 import com.kaishengit.pojo.Role;
 import com.kaishengit.pojo.User;
 import org.apache.shiro.authc.*;

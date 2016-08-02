@@ -1,4 +1,4 @@
-package com.kaishengit.serivce;
+package com.kaishengit.service;
 
 import com.kaishengit.dao.PatientDao;
 import com.kaishengit.pojo.Patient;
@@ -9,9 +9,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 import java.util.List;
 
-/**
- * Created by Administrator on 2016/7/29.
- */
 @Named
 @Transactional
 public class PatientService {

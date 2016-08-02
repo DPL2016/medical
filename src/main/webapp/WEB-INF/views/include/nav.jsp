@@ -21,9 +21,16 @@
                 </ul>
             </li>
         </ul>
-        <ul class="nav pull-right">
-            <li class="divider-vertical"></li>
-            <li><a href="#"><i class="fa fa-cog"></i> 个人设置</a></li>
-        </ul>
+        <div class="dropdown pull-right ">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" ><i class="fa fa-cog"></i> 个人设置 <b class="caret"></b></a>
+            <%--<span class="caret"></span>--%>
+            </button>
+            <ul class="dropdown-menu " aria-labelledby="dropdownMenu1">
+                <li><a href="/user/password"><i class="fa fa-edit"></i>  修改密码</a></li>
+                <li><a href="/user/log"><i class="fa fa-list-alt"></i>  登录日志</a></li>
+                <li class="divider"></li>
+                <li><a href="/logout"><i class="fa fa-sign-out"></i>  安全退出</a></li>
+            </ul>
+        </div>
     </div>
 </div>

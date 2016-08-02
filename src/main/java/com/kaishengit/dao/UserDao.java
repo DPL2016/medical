@@ -11,6 +11,7 @@ import org.hibernate.criterion.Restrictions;
 
 import javax.inject.Inject;
 import javax.inject.Named;
+import java.util.Map;
 
 @Named
 public class UserDao{
@@ -26,4 +27,6 @@ public class UserDao{
 
         return (User) criteria.uniqueResult();
     }
+
+
 }

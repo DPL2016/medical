@@ -1,4 +1,4 @@
-package com.kaishengit.serivce;
+package com.kaishengit.service;
 
 import com.kaishengit.dao.MedicalTypeDao;
 import com.kaishengit.pojo.MedicalType;
